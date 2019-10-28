@@ -16,6 +16,6 @@ exports.generateAnalyticsData = functions.database.
     .onCreate((snapshot, context) => {
         const feedData = snapshot.val();
         feedData.energyConsumption = 113 + (12 * feedData.duration); //mAh
-        feedData.date = moment(feedData.date).subtract(3, "hours").format();
+        feedData.date = moment(feedData.date).subtract(3, "hours").format("DD/MM/YYYY HH");
         return snapshot.ref.update(feedData);
 });
